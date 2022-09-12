@@ -1,4 +1,4 @@
-name: chapter_13
+name: chapter11
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
@@ -33,19 +33,24 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  http: ^0.13.4
+  flutter_secure_storage: ^5.0.2
+  json_annotation: ^4.6.0
+  path_provider: ^2.0.10
+  hive_flutter: ^1.0.0
+  hive_generator: ^1.0.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
+  build_runner: ^2.2.0
+  json_serializable: ^6.3.1
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
-  provider:
-  get:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
