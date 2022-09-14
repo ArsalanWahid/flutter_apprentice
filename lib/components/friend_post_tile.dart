@@ -18,8 +18,9 @@ class FriendPostTile extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         CircleImage(
-            imageProvider: AssetImage('${post.profileImageUrl}'),
-            imageRadius: 20),
+          imageProvider: AssetImage('${post.profileImageUrl}'),
+          imageRadius: 20,
+        ),
         const SizedBox(width: 16),
         Expanded(
           child: Column(
@@ -32,7 +33,7 @@ class FriendPostTile extends StatelessWidget {
               ),
             ],
           ),
-        )
+        ),
       ],
     );
   }
