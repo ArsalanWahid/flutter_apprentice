@@ -14,7 +14,7 @@ class _HomeState extends State<Home> {
   int _selectedIndex = 0;
 
   static List<Widget> pages = <Widget>[
-    ExploreScreen(),
+    const ExploreScreen(),
     RecipesScreen(),
     Container(
       color: Colors.blue,
@@ -27,9 +27,12 @@ class _HomeState extends State<Home> {
     });
   }
 
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       appBar: AppBar(
         title: Text(
           'Fooderlich',
