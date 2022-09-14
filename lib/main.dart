@@ -1,4 +1,8 @@
+import 'package:chapter_1/data_provider.dart';
+import 'package:chapter_1/product_menu.dart';
 import 'package:flutter/material.dart';
+
+import 'data_model/data_model.dart';
 
 void main() {
   runApp(const MyApp());
@@ -48,17 +52,13 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
+  // ignore: non_constant_identifier_names
+  DataProvider data = DataProvider();
+  List<Recipe> recipe_data = [];
+  @override
+  void initState() {
+    super.initState();
+    recipe_data = DataProvider.samples;
   }
 
   @override
@@ -70,46 +70,59 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
+      // 2
       appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'Thou hast pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
+      // 3
+      body: SafeArea(
+        // TODO: Replace child: Container()
+        // 4
+        child: ListView.builder(
+          // 5
+          itemCount: recipe_data.length,
+          // 6
+          itemBuilder: (BuildContext context, int index) {
+            // 7
+            // TODO: Update to return Recipe card
+            return Column(
+              children: [
+                const SizedBox(
+                  height: 10,
+                ),
+                GestureDetector(
+                  child: SizedBox(
+                      height: 460,
+                      child: Card(
+                          elevation: 10,
+                          child: Column(
+                            children: [
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              Text(recipe_data[index].label),
+                              const SizedBox(height: 10),
+                              Image.asset(recipe_data[index].imageUrl)
+                            ],
+                          ))),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ProductMenu(
+                                image: recipe_data[index].imageUrl,
+                                label: recipe_data[index].label,
+                                title: 'Product Menu',
+                                recipe: recipe_data[index],
+                              )),
+                    );
+                  },
+                ),
+              ],
+            );
+          },
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
