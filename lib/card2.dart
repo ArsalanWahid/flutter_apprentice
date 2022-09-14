@@ -15,28 +15,21 @@ class Card2 extends StatelessWidget {
         ),
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/mag5.png'),
+            image: AssetImage('assets/mag5.png'),
             fit: BoxFit.cover,
           ),
-          borderRadius: BorderRadius.all(
-            Radius.circular(10.0),
-          ),
+          borderRadius: BorderRadius.all(Radius.circular(10.0)),
         ),
         child: Column(
           children: [
-            // TODO 1: add author information
             const AuthorCard(
               authorName: 'Mike Katz',
               title: 'Smoothie Connoisseur',
-              imageProvider: AssetImage('assets/images/image1.jpeg'),
+              imageProvider: AssetImage('assets/author_katz.jpeg'),
             ),
-            // TODO 4: add Positioned text
-            // 1
             Expanded(
-              // 2
               child: Stack(
                 children: [
-                  // 3
                   Positioned(
                     bottom: 16,
                     right: 16,
@@ -45,7 +38,6 @@ class Card2 extends StatelessWidget {
                       style: FooderlichTheme.lightTextTheme.headline1,
                     ),
                   ),
-                  // 4
                   Positioned(
                     bottom: 70,
                     left: 16,
