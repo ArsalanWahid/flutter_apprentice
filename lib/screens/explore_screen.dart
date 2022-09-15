@@ -20,13 +20,11 @@ class ExploreScreen extends StatelessWidget {
             children: [
               TodayRecipeListView(recipes: snapshot.data?.todayRecipes ?? []),
               const SizedBox(height: 16),
-              FriendPostListView(friendPosts: snapshot.data?.friendPosts ?? []),
+              FriendPostListView(friendPosts: snapshot.data?.friendPosts ?? [])
             ],
           );
         } else {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
+          return const Center(child: CircularProgressIndicator());
         }
       },
     );

@@ -7,15 +7,15 @@ import '../models/models.dart';
 class OnboardingScreen extends StatefulWidget {
   static MaterialPage page() {
     return MaterialPage(
-      name: FooderlichPages.onboardingPath,
-      key: ValueKey(FooderlichPages.onboardingPath),
-      child: const OnboardingScreen(),
-    );
+        name: FooderlichPages.onboardingPath,
+        key: ValueKey(FooderlichPages.onboardingPath),
+        child: const OnboardingScreen());
   }
 
   const OnboardingScreen({Key? key}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _OnboardingScreenState createState() => _OnboardingScreenState();
 }
 
@@ -27,19 +27,18 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0.0,
-        title: const Text('Getting Started'),
-        leading: GestureDetector(
-          child: const Icon(
-            Icons.chevron_left,
-            size: 35,
-          ),
-          onTap: () {
-            Navigator.pop(context, true);
-          },
-        ),
-      ),
+          backgroundColor: Colors.transparent,
+          elevation: 0.0,
+          title: const Text('Getting Started'),
+          leading: GestureDetector(
+            child: const Icon(
+              Icons.chevron_left,
+              size: 35,
+            ),
+            onTap: () {
+              Navigator.pop(context, true);
+            },
+          )),
       body: SafeArea(
         child: Column(
           children: [
@@ -59,10 +58,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         MaterialButton(
           child: const Text('Skip'),
           onPressed: () {
-            Provider.of<AppStateManager>(context, listen: false)
-                .completeOnboarding();
+            Provider.of<AppStateManager>(context, listen: false).onboarded();
           },
-        ),
+        )
       ],
     );
   }
@@ -72,13 +70,16 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       controller: controller,
       children: [
         onboardPageView(
-          const AssetImage('assets/fooderlich_assets/recommend.png'),
-          '''Check out weekly recommended recipes and what your friends are cooking!''',
+            const AssetImage('assets/fooderlich_assets/recommend.png'),
+            '''Checkout weekly recommended recipes and what your friends are cooking!'''),
+        onboardPageView(
+          const AssetImage('assets/fooderlich_assets/sheet.png'),
+          'Cook with step by step instructions!',
         ),
-        onboardPageView(const AssetImage('assets/fooderlich_assets/sheet.png'),
-            'Cook with step by step instructions!'),
-        onboardPageView(const AssetImage('assets/fooderlich_assets/list.png'),
-            'Keep track of what you need to buy'),
+        onboardPageView(
+          const AssetImage('assets/fooderlich_assets/list.png'),
+          'Keep track of what you need to buy',
+        ),
       ],
     );
   }
@@ -97,11 +98,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             ),
           ),
           const SizedBox(height: 16),
-          Text(
-            text,
-            style: const TextStyle(fontSize: 20),
-            textAlign: TextAlign.center,
-          ),
+          Text(text,
+              style: const TextStyle(fontSize: 20),
+              textAlign: TextAlign.center),
           const SizedBox(height: 16),
         ],
       ),

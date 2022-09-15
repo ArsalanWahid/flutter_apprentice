@@ -38,11 +38,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Consumer<AppStateManager>(
-      builder: (
-        context,
-        appStateManager,
-        child,
-      ) {
+      builder: (context, appStateManager, child) {
         return Scaffold(
           appBar: AppBar(
             title: Text(
@@ -65,16 +61,16 @@ class _HomeState extends State<Home> {
               Provider.of<AppStateManager>(context, listen: false)
                   .goToTab(index);
             },
-            items: <BottomNavigationBarItem>[
-              const BottomNavigationBarItem(
+            items: const <BottomNavigationBarItem>[
+              BottomNavigationBarItem(
                 icon: Icon(Icons.explore),
                 label: 'Explore',
               ),
-              const BottomNavigationBarItem(
+              BottomNavigationBarItem(
                 icon: Icon(Icons.book),
                 label: 'Recipes',
               ),
-              const BottomNavigationBarItem(
+              BottomNavigationBarItem(
                 icon: Icon(Icons.list),
                 label: 'To Buy',
               ),
@@ -91,9 +87,7 @@ class _HomeState extends State<Home> {
       child: GestureDetector(
         child: const CircleAvatar(
           backgroundColor: Colors.transparent,
-          backgroundImage: AssetImage(
-            'assets/profile_pics/person_stef.jpeg',
-          ),
+          backgroundImage: AssetImage('assets/profile_pics/person_stef.jpeg'),
         ),
         onTap: () {
           Provider.of<ProfileManager>(context, listen: false)

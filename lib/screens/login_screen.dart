@@ -6,10 +6,9 @@ import '../models/models.dart';
 class LoginScreen extends StatelessWidget {
   static MaterialPage page() {
     return MaterialPage(
-      name: FooderlichPages.loginPath,
-      key: ValueKey(FooderlichPages.loginPath),
-      child: const LoginScreen(),
-    );
+        name: FooderlichPages.loginPath,
+        key: ValueKey(FooderlichPages.loginPath),
+        child: const LoginScreen());
   }
 
   final String? username;
@@ -44,7 +43,7 @@ class LoginScreen extends StatelessWidget {
               const SizedBox(height: 16),
               buildTextfield('🎹 password'),
               const SizedBox(height: 16),
-              buildButton(context),
+              buildButton(context)
             ],
           ),
         ),
