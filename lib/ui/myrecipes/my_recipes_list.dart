@@ -6,7 +6,6 @@ class MyRecipesList extends StatefulWidget {
   const MyRecipesList({Key? key}) : super(key: key);
 
   @override
-  // ignore: library_private_types_in_public_api
   _MyRecipesListState createState() => _MyRecipesListState();
 }
 
@@ -40,24 +39,6 @@ class _MyRecipesListState extends State<MyRecipesList> {
             child: Slidable(
               actionPane: const SlidableDrawerActionPane(),
               actionExtentRatio: 0.25,
-              actions: <Widget>[
-                IconSlideAction(
-                    caption: 'Delete',
-                    color: Colors.transparent,
-                    foregroundColor: Colors.black,
-                    iconWidget: const Icon(Icons.delete, color: Colors.red),
-                    // TODO 7
-                    onTap: () {})
-              ],
-              secondaryActions: <Widget>[
-                IconSlideAction(
-                    caption: 'Delete',
-                    color: Colors.transparent,
-                    foregroundColor: Colors.black,
-                    iconWidget: const Icon(Icons.delete, color: Colors.red),
-                    // TODO 8
-                    onTap: () {})
-              ],
               child: Card(
                 elevation: 1.0,
                 shape: RoundedRectangleBorder(
@@ -82,6 +63,24 @@ class _MyRecipesListState extends State<MyRecipesList> {
                   ),
                 ),
               ),
+              actions: <Widget>[
+                IconSlideAction(
+                    caption: 'Delete',
+                    color: Colors.transparent,
+                    foregroundColor: Colors.black,
+                    iconWidget: const Icon(Icons.delete, color: Colors.red),
+                    // TODO 7
+                    onTap: () {})
+              ],
+              secondaryActions: <Widget>[
+                IconSlideAction(
+                    caption: 'Delete',
+                    color: Colors.transparent,
+                    foregroundColor: Colors.black,
+                    iconWidget: const Icon(Icons.delete, color: Colors.red),
+                    // TODO 8
+                    onTap: () {})
+              ],
             ),
           );
         });

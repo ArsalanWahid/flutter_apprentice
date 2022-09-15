@@ -9,7 +9,7 @@ class ShoppingList extends StatefulWidget {
 }
 
 class _ShoppingListState extends State<ShoppingList> {
-  final checkBoxValues = <int, bool>{};
+  final checkBoxValues = Map<int, bool>();
   static const ingredients = <String>[];
 
   @override
