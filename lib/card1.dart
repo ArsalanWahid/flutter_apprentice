@@ -52,7 +52,7 @@ class Card1 extends StatelessWidget {
         ),
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/mag1.png'),
+            image: AssetImage('assets/images/m1.png'),
             fit: BoxFit.cover,
           ),
           borderRadius: BorderRadius.all(Radius.circular(10.0)),
